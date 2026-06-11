@@ -50,7 +50,9 @@ const LayoutPage = () => {
       <Title level={2}>
         {pageData?.title}
       </Title>
-      <div>{pageData?.content}</div>
+      <div
+        dangerouslySetInnerHTML={{ __html: pageData?.content || '' }}
+      />
     </Card>
   );
 };

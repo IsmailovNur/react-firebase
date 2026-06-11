@@ -13,5 +13,8 @@ export const cmsApi = {
   getAllPages: async (): Promise<PagesResponse | null> => {
     const response = await cmsEndpoint.get<PagesResponse | null>('/pages.json');
     return response.data;
+  },
+  savePage: async (pageName: string, data: PageData): Promise<void> => {
+    await cmsEndpoint.put(`/pages/${pageName}.json`, data);
   }
 };
